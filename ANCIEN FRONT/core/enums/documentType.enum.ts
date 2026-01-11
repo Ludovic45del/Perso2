@@ -1,0 +1,8 @@
+export enum DocumentTypeEnum {
+    OVERVIEW = 'OVERVIEW',
+    DOCUMENTAIRE = 'DOCUMENTAIRE',
+    CAO = 'CAO',
+    ASSEMBLAGE = 'ASSEMBLAGE',
+    METROLOGIE = 'METROLOGIE',
+    FICHIERS_PALS = "FICHIERS_PALS",
+  }

@@ -1,0 +1,15 @@
+uuid,fsec_id,subtype_id,name,path,date
+76a581f15ed94941878c193c9e7a0bf6,981b3cfb2fba4b30ad2dcbdd73f3334a,0,Document1,C://Documents/Document1.pdf,2025-02-02 13:26:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf7,981b3cfb2fba4b30ad2dcbdd73f3334a,1,Document2,C://Documents/ImageTransparente1.png,2025-02-02 13:31:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf8,981b3cfb2fba4b30ad2dcbdd73f3334a,2,Document3,C://Documents/ImageBasseQualité1.jpg,2025-02-02 13:42:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf9,981b3cfb2fba4b30ad2dcbdd73f3334a,3,Document4,C://Documents/Word1.docx,2025-02-02 13:59:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf0,981b3cfb2fba4b30ad2dcbdd73f3334a,4,Document5,C://Documents/Document2.pdf,2025-02-02 14:20:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf1,981b3cfb2fba4b30ad2dcbdd73f3334a,5,Document6,C://Documents/ImageTransparente2.png,2025-02-02 15:30:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf2,981b3cfb2fba4b30ad2dcbdd73f3334a,6,Document7,C://Documents/ImageBasseQualité2.jpg,2025-02-02 16:01:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf3,981b3cfb2fba4b30ad2dcbdd73f3334a,7,Document8,C://Documents/Word2.docx,2025-02-03 09:10:19.857303+00:00
+76a581f15ed94941878c193c9e7a0bf4,981b3cfb2fba4b30ad2dcbdd73f3334a,8,Document9,C://Documents/Word3.docx,2025-02-03 10:12:19.857303+00:00
+4105ffcbf5354695bc97d1c0721e9f37,981b3cfb2fba4b30ad2dcbdd73f3334a,9,DOC1,C://Documents/DOC1.doc,2025-02-05 10:12:19.857303+00:00
+4105ffcbf5354695bc97d1c0721e9f38,981b3cfb2fba4b30ad2dcbdd73f3334a,10,adoc1,C://User/jean/adoc1.pdf,2025-02-05 10:30:19.857303+00:00
+4105ffcbf5354695bc97d1c0721e9f39,981b3cfb2fba4b30ad2dcbdd73f3334a,11,FICHIER,C://Downloads/jean/FICHIER.pdf,2025-02-05 10:45:19.857303+00:00
+4105ffcbf5354695bc97d1c0721e9f32,981b3cfb2fba4b30ad2dcbdd73f3334a,12,word,C://Windows/word.docx,2025-02-05 11:00:19.857303+00:00
+4105ffcbf5354695bc97d1c0721e9f31,981b3cfb2fba4b30ad2dcbdd73f3334a,13,word,C://Windows/wordFDT.docx,2025-02-05 11:00:19.857303+00:00

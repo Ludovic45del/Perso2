@@ -1,0 +1,54 @@
+"""Mapper FsecTeams - Conversion Entity ↔ Bean ↔ API."""
+from typing import Any, Dict
+
+from cible.domain.fsec.models.fsec_teams_bean import FsecTeamsBean
+from cible.repository.fsec.models.fsec_teams_entity import FsecTeamsEntity
+
+
+def fsec_teams_mapper_entity_to_bean(entity: FsecTeamsEntity) -> FsecTeamsBean:
+    """Convertit une FsecTeamsEntity en FsecTeamsBean."""
+    return FsecTeamsBean(
+        uuid=str(entity.uuid),
+        fsec_id=str(entity.fsec_id_id) if entity.fsec_id_id else "",
+        role_id=entity.role_id_id if entity.role_id_id else None,
+        name=entity.name,
+        step_type=entity.step_type,
+        step_uuid=entity.step_uuid,
+    )
+
+
+def fsec_teams_mapper_bean_to_entity(bean: FsecTeamsBean) -> FsecTeamsEntity:
+    """Convertit un FsecTeamsBean en FsecTeamsEntity."""
+    entity = FsecTeamsEntity()
+    if bean.uuid:
+        entity.uuid = bean.uuid
+    entity.fsec_id_id = bean.fsec_id
+    entity.role_id_id = bean.role_id
+    entity.name = bean.name
+    entity.step_type = bean.step_type
+    entity.step_uuid = bean.step_uuid
+    return entity
+
+
+def fsec_teams_mapper_api_to_bean(data: Dict[str, Any]) -> FsecTeamsBean:
+    """Convertit des données API en FsecTeamsBean."""
+    return FsecTeamsBean(
+        uuid=data.get("uuid", ""),
+        fsec_id=data.get("fsec_id", ""),
+        role_id=data.get("role_id"),
+        name=data.get("name", ""),
+        step_type=data.get("step_type"),
+        step_uuid=data.get("step_uuid"),
+    )
+
+
+def fsec_teams_mapper_bean_to_api(bean: FsecTeamsBean) -> Dict[str, Any]:
+    """Convertit un FsecTeamsBean en données API."""
+    return {
+        "uuid": bean.uuid,
+        "fsec_id": bean.fsec_id,
+        "role_id": bean.role_id,
+        "name": bean.name,
+        "step_type": bean.step_type,
+        "step_uuid": bean.step_uuid,
+    }

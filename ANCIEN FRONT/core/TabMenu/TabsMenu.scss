@@ -1,0 +1,9 @@
+.MuiTabs-flexContainer {
+    justify-content: space-around;
+}
+.overview--tab-container{
+    width: 85%;
+    .MuiTabs-root{
+        margin-bottom: 16px
+    }
+}

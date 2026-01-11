@@ -1,0 +1,29 @@
+
+
+.active-step {
+    cursor: pointer;
+}
+
+
+.disable-step > span {
+    cursor: default !important;
+}
+
+.disable-step > div > span{
+    border-color: #aaaaaa;
+}
+
+.disable-step > span > span > svg  {
+    color: #d1d1d1;
+}
+
+.disable-step > span > span > svg > circle {
+    stroke: #aaaaaa;
+}
+
+.disable-step > span > span > svg > text {
+    fill: #606060;
+}
+
+
+

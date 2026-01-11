@@ -1,0 +1,19 @@
+.overview--header-menu {
+  padding-top: 1em;
+  display: flex;
+  .menu--left-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .menu--stepper-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+  }
+  .menu--right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+}

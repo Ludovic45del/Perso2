@@ -1,0 +1,24 @@
+$breakpoint-lg: 1024px;
+
+.campaign-table-container{
+  overflow: auto;
+
+  @media (max-width: $breakpoint-lg) {
+    flex: 1 1 0;
+  }
+
+  @media (min-width: $breakpoint-lg + 1) {
+    flex: 2 1 0;
+  }
+}
+
+.campaigns-toolbar-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.campaigns-toolbar-container>div {
+  flex: 1 1 auto;
+}

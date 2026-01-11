@@ -1,0 +1,22 @@
+.overiew--content-container {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em 0;
+  .content--data-container {
+    display: grid;
+    grid-gap: 2em;
+
+    &:first-of-type {
+      .data--first-item{
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-gap: 2em;
+      }
+      .data--last-item {
+        display: grid;
+        grid-gap: 2em;
+      }
+    }
+  }
+}

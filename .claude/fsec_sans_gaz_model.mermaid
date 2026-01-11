@@ -1,0 +1,182 @@
+---
+title: Modèle de Données FSEC "Sans Gaz" - Cartographie Complète
+---
+
+erDiagram
+    %% ============================================
+    %% ENTITE PRINCIPALE
+    %% ============================================
+    
+    FSEC {
+        UUID version_uuid PK "Clé primaire (versionning)"
+        UUID fsec_uuid "Identifiant unique FSEC"
+        string name "Nom FSEC (max 50 car.)"
+        UUID campaign_id FK "Campagne associée"
+        int category_id FK "Sans Gaz = id spécifique"
+        int status_id FK "0-8 selon workflow"
+        int rack_id FK "Rack de stockage (nullable)"
+        text comments "Commentaires (max 4000)"
+        boolean is_active "Version active True/False"
+        date delivery_date "Date livraison (Usable)"
+        date shooting_date "Date tir (Installed)"
+        float preshooting_pressure "Pression avant tir"
+        string experience_srxx "Ex: SR21, SR22"
+        string localisation "Localisation finale (Shot)"
+        datetime last_updated "MAJ automatique"
+        datetime created_at "Création automatique"
+        boolean depressurization_failed "False pour Sans Gaz"
+    }
+
+    %% ============================================
+    %% REFERENTIELS
+    %% ============================================
+
+    CAMPAIGN {
+        UUID uuid PK
+        int year "2024, 2025..."
+        string name "Nom campagne"
+        int installation_id FK
+    }
+
+    INSTALLATION {
+        int id PK
+        string label "LMJ | OMEGA"
+    }
+
+    FSEC_CATEGORY {
+        int id PK
+        string label "Sans Gaz | Avec Gaz HP | Avec Gaz BP | Avec Gaz BP+HP | Avec Gaz Permeation+BP"
+        string color "Couleur affichage"
+    }
+
+    FSEC_STATUS {
+        int id PK "0-8 pour Sans Gaz"
+        string label "Design | Assemblage | Metrologie | Scellement | Photos | Utilisable | Installe | Tiree | HS"
+        string color "Couleur affichage"
+    }
+
+    FSEC_RACK {
+        int id PK
+        string label "Nom du rack"
+        string color "Couleur"
+        boolean is_full "True si 10 FSEC"
+    }
+
+    FSEC_ROLE {
+        int id PK
+        string label "RCE | MOE | IEC | ASSEMBLEUR | METROLOGUE | OPERATEUR_PHOTOS | TCI"
+    }
+
+    FSEC_DOCUMENT_TYPE {
+        int id PK
+        string label "Type document"
+    }
+
+    FSEC_DOCUMENT_SUBTYPE {
+        int id PK
+        string label "Visrad initial | Vues | STP Metro | Fiches Car | Fiche reception | Gamme assemblage | Visrad realise | Fichier metro | Vue | Fiche livraison | Fiche livraison signee TCI | Fichier alignement | Fichiers PALS | FDT | FDM"
+        int type_id FK
+    }
+
+    ASSEMBLY_BENCH {
+        int id PK
+        string label "Nom banc"
+        string color "Couleur"
+    }
+
+    METROLOGY_MACHINE {
+        int id PK
+        string label "Nom machine"
+        string color "Couleur"
+    }
+
+    %% ============================================
+    %% ENTITES LIEES A FSEC
+    %% ============================================
+
+    FSEC_TEAM {
+        UUID uuid PK
+        UUID fsec_id FK "version_uuid FSEC"
+        int role_id FK
+        string name "Nom personne (max 50)"
+    }
+
+    FSEC_DOCUMENT {
+        UUID uuid PK
+        UUID fsec_id FK "version_uuid FSEC"
+        int subtype_id FK
+        string name "Nom document (max 50)"
+        string path "Chemin fichier (max 256)"
+        datetime date "Date ajout"
+    }
+
+    %% ============================================
+    %% STEPS DU WORKFLOW SANS GAZ
+    %% ============================================
+
+    ASSEMBLY_STEP {
+        UUID uuid PK
+        UUID fsec_version FK
+        float hydrometric_temperature "Temperature hygrometrique"
+        date start_date "Date debut assemblage"
+        date end_date "Date fin assemblage"
+        text comments "Commentaires (max 4000)"
+    }
+
+    ASSEMBLY_STEP_BENCH {
+        UUID assembly_step_id FK
+        int bench_id FK
+    }
+
+    METROLOGY_STEP {
+        UUID uuid PK
+        UUID fsec_version FK
+        int machine_id FK "Machine metrologie"
+        date date "Date metrologie"
+        text comments "Commentaires (max 4000)"
+    }
+
+    SEALING_STEP {
+        UUID uuid PK
+        UUID fsec_version FK
+        string interface_io "Interface IO (max 50)"
+        text comments "Commentaires (max 4000)"
+    }
+
+    PICTURES_STEP {
+        UUID uuid PK
+        UUID fsec_version FK
+        date last_updated "MAJ automatique"
+        text comments "Commentaires (max 4000)"
+    }
+
+    %% ============================================
+    %% RELATIONS
+    %% ============================================
+
+    %% Relations principales FSEC
+    FSEC ||--o{ CAMPAIGN : "appartient a"
+    FSEC ||--|| FSEC_CATEGORY : "a categorie"
+    FSEC ||--|| FSEC_STATUS : "a statut"
+    FSEC ||--o| FSEC_RACK : "stocke dans"
+    
+    %% Campaign et Installation
+    CAMPAIGN ||--|| INSTALLATION : "installation"
+    
+    %% Teams et Documents
+    FSEC ||--o{ FSEC_TEAM : "a equipe"
+    FSEC ||--o{ FSEC_DOCUMENT : "a documents"
+    FSEC_TEAM ||--|| FSEC_ROLE : "a role"
+    FSEC_DOCUMENT ||--|| FSEC_DOCUMENT_SUBTYPE : "a sous-type"
+    FSEC_DOCUMENT_SUBTYPE ||--|| FSEC_DOCUMENT_TYPE : "appartient a"
+
+    %% Steps
+    FSEC ||--o{ ASSEMBLY_STEP : "etape assemblage"
+    FSEC ||--o{ METROLOGY_STEP : "etape metrologie"
+    FSEC ||--o| SEALING_STEP : "etape scellement"
+    FSEC ||--o{ PICTURES_STEP : "etape photos"
+
+    %% Relations Steps
+    ASSEMBLY_STEP ||--o{ ASSEMBLY_STEP_BENCH : "utilise bancs"
+    ASSEMBLY_STEP_BENCH ||--|| ASSEMBLY_BENCH : "banc"
+    METROLOGY_STEP ||--o| METROLOGY_MACHINE : "utilise machine"

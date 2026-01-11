@@ -1,0 +1,48 @@
+@mixin flex-container($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  gap: 16px;
+  flex-wrap: wrap;
+  height: 100%;
+
+}
+
+.overview-container {
+  @include flex-container;
+  width: 100%;
+
+  .general-fields-container,
+  .date-fields-container,
+  .project-team-container {
+    @include flex-container(column);
+    > * {
+      width: 290px;
+    }
+  }
+}
+
+.documentary-grid {
+  overflow: scroll;
+  max-height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-content: flex-start;
+  row-gap: 12px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid-header {
+    align-content: center;
+    & > p {
+      font-weight: bold;
+    }
+  }
+
+}
+
+
+
+
+

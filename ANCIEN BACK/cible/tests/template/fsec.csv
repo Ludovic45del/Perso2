@@ -1,0 +1,2 @@
+version_uuid,fsec_uuid,last_updated,is_active,created_at,name,comments,delivery_date,shooting_date,preshooting_pressure,experience_srxx,localisation,campaign_id,category_id,status_id,rack_id
+981b3cfb2fba4b30ad2dcbdd73f3334a,981b3cfb2fba4a44ad2dcbdd73f3334a,2025-02-01 13:26:19.857303+00:00,1,2025-02-01 13:26:19.857303+00:00,FSEC_TEST,Je suis le commentaire,2025-02-01,2025-02-02,10.5,experience,cea,981b3cfb2fba4a30ad2dcbdd73f3334a,0,0,32

@@ -1,0 +1,12 @@
+.idea
+venv
+*.sqlite3
+__pycache__
+build
+space.egg-info/
+*.iml
+.tox
+.pytest_cache
+.coverage
+*/migrations/*.py
+!*/migrations/__init__.py

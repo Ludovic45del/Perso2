@@ -1,0 +1,3 @@
+uuid,name,year,semester,last_updated,start_date,end_date,dtri_number,description,installation_id,status_id,type_id
+981b3cfb2fba4a30ad2dcbdd73f3334a,Gorfou,2025,S1,2025-02-01 13:26:19.857303+00:00,2025-02-01,2025-09-01,123456789,description,0,0,1
+981b3cfb2fba4a30ad2dcbdd73f3334b,Lynx,2025,S2,2025-02-01 13:26:19.857303+00:00,2025-02-01,2025-09-01,987654321,description,1,3,0

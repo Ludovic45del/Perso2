@@ -1,0 +1,72 @@
+.flex-box{
+    display: flex;
+    align-items: center;
+}
+
+.xs-chip {
+    height: 16px;
+    width: 50px;
+    margin-left: 0.5em;
+    line-height: 2em;
+    overflow: visible;
+}
+
+.laser-row {
+    height:56px;
+}
+.laser-row > td {
+    padding:0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.selected > td {
+    background:  #b1cce7 !important;
+}
+
+
+.dp-table-row {
+    height:36px;
+    cursor: pointer;
+}
+
+.dp-table-row > td {
+    padding: 2px;
+}
+
+.first-cell {
+    border-radius: 32px 0 0 32px;
+    padding-left: 8px;
+}
+
+.last-cell {
+    border-radius: 0 32px 32px 0;
+    padding-right: 8px;
+}
+
+.detail-open-first-cell {
+    border-radius: 32px 0 0 0!important;
+    padding-left: 8px;
+}
+.detail-open-last-cell {
+    border-radius: 0 32px 0 0!important;
+    padding-right: 8px;
+}
+
+.data {
+    font-size: inherit;
+    height: 18px;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+
+.laser-group > td {
+    height: unset;
+}
